@@ -1,15 +1,15 @@
 # GeekNavi :mortar_board:
-Building a Simple Course Recommendation system for online courses
+Building a Simple Course Recommendation System for Online Courses
 
 ## About the Project
-GeekNavi is a minimalistic system built on the idea to help learners navigate through the courses on Coursera, aided by a data-driven strategy. Currently, GeekNavi only performs the task of identifying the most similar and most dissimilar courses to a selected course that is chosen by the learner from a pool of courses relevant to the skills the learner is interested in.  
+With the use of a data-driven approach, GeekNavi is a minimalist system designed to assist students in navigating through the courses on Coursera. Currently, GeekNavi only identifies courses that are most similar to and most different from a selected course, which is picked by the learner from a pool of courses relevant to the skills the learner is interested in.
   
-*NOTE: This is a personal project initiated with the author's requirement for an end-to-end data science project that could help learn the skills of creating a dataset through web scraping, deploying a web-app via [Streamlit](https://www.streamlit.io/) and a basic primer into content-based recommendation systems. Though this tool makes reasonable recommendations as of now, it is far from being "intelligent". However, you could download this repo and work on it and make it "smarter"!* :smile: 
+*NOTE: This is a personal project that the author started because they needed an end-to-end data science project that could teach them how to deploy a web app using [Streamlit](https://www.streamlit.io/), create a dataset using web scraping, and learn the fundamentals of content-based recommendation systems. Although this program currently provides reliable recommendations, it is hardly "smart." However, you may pull this repo, work on it, make it "smarter" and thus, make relevant contributions!* :smile: 
  
 ## Dataset Used
-For the purpose of building GeekNavi, data from Coursera was scraped using the requests and beautifulsoup4 libraries. The ```scraper.py``` file contains code for scraping data from [https://www.coursera.org/courses](https://www.coursera.org/courses) and generates [coursera-courses-overview.csv](https://github.com/ry05/GeekNavi/blob/master/data/coursera-courses-overview.csv). The ```course_scraper.py``` file contains code to scrape details of each individual course and the output is [coursera-individual-courses.csv](https://github.com/ry05/GeekNavi/blob/master/data/coursera-individual-courses.csv).  
+For the purpose of building GeekNavi, data from Coursera was scraped using the requests and beautifulsoup4 libraries. The ```scraper.py``` file contains code for scraping data from [https://www.coursera.org/courses](https://www.coursera.org/courses) and generates [coursera-courses-overview.csv](https://github.com/khamosshhh/GeekNavi/blob/main/coursera-courses-overview.csv). The ```course_scraper.py``` file contains code to scrape details of each individual course and the output is [coursera-individual-courses.csv](https://github.com/khamosshhh/GeekNavi/blob/main/coursera-individual-courses.csv).  
 
-Both these above datasets have been combined to give [coursera-courses.csv](https://github.com/ry05/GeekNavi/blob/master/data/coursera-courses.csv). This file consists of 1000 instances and 14 features and has a size of 1.41 MB.
+Both these above datasets have been combined to give [coursera-courses.csv](https://github.com/khamosshhh/GeekNavi/blob/main/coursera-courses.csv). This file consists of 1000 instances and 14 features and has a size of 1.41 MB.
 
 ### Features in the Dataset
 The following features have been extracted for the dataset created above:  
@@ -44,18 +44,18 @@ The instructions to run GeekNavi on your local system are as follows:
   ```
 5. The app should open at http://localhost:8501
 
-## Screenshots
+<!-- ## Screenshots
 ![](https://github.com/ry05/GeekNavi/blob/master/img/GeekNavi-init.JPG)  
 Fig.1. The GeekNavi Interface
 ![](https://github.com/ry05/GeekNavi/blob/master/img/GeekNavi-skill-filter.JPG)  
 Fig.2. Applying the Skill Filter
 ![](https://github.com/ry05/GeekNavi/blob/master/img/GeekNavi-recommend.JPG)  
-Fig.3. Recommendations Generated
+Fig.3. Recommendations Generated -->
 
 ## What can GeekNavi do?
 In a nutshell GeekNavi can perform the following tasks:
 * Select courses for you based on the skills you want to learn
-* Recommend courses that are most similar and dissimilar to the course you select
+* Recommend courses that are most similar and most different to the course you select
 
 ## References
 If you liked the concept and implementation of GeekNavi, do check out the following resources that provided me with some much needed help while working on this:
