@@ -24,8 +24,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 FILTERED_COURSES = None
 SELECTED_COURSE = None
 
-@st.cache(persist=True)
-def clean_col_names(df, columns):
+@st.cache_data(persist=True)
+def clean_col_names(df, _columns):
     """
     Cleans column names
     -----
@@ -34,11 +34,11 @@ def clean_col_names(df, columns):
     """
 
     new = []
-    for c in columns:
+    for c in _columns:
         new.append(c.lower().replace(' ','_'))
     return new
 
-@st.cache(persist=True)
+@st.cache_data(persist=True)
 def prepare_data(df):
     """
     Prepares the final dataset
@@ -96,7 +96,7 @@ def prepare_data(df):
 
     return df
 
-@st.cache(allow_output_mutation=True)
+@st.cache_data()
 def load_data():
     source_path1 = os.path.join("data/coursera-courses-overview.csv")
     source_path2 = os.path.join("data/coursera-individual-courses.csv")
@@ -109,7 +109,7 @@ def load_data():
 
     return df
 
-@st.cache(persist=True)
+@st.cache_data(persist=True)
 def filter(dataframe, chosen_options, feature, id):
     selected_records = []
     for i in range(1000):
@@ -252,7 +252,7 @@ def prep_for_cbr(df):
     #else:
         #st.write("```Adjust the 'Select Skills' filter on the sidebar```")
 
-    rec_radio = st.sidebar.radio("Recommend Similar Courses", ('YES', 'NO'), index=0)
+    rec_radio = st.sidebar.radio("Recommend Similar Courses", ('YES', 'NO'), index=1)
     if (rec_radio=='YES'):
         content_based_recommendations(df, input_course, courses)
 
@@ -265,19 +265,19 @@ def main():
     st.sidebar.title("Set your Parameters")
     st.sidebar.header("Preliminary Inspection")
     st.header("About the Project")
-    st.write("GeekNavi is a minimalistic system built to help learners"
-        " navigate through the courses on Coursera, aided by a"
-        " data-driven strategy. A learner could visualize different"
-        " features provided in the dataset or interact with this app"
-        " to find suitable courses to take. GeekNavi also can help"
-        " identify suitable courses for a learner based on their"
-        " learning preferences.")
+    st.write("GeekNavi is a data-driven solution that "
+             "uses a simple interface that helps learners "
+             "in exploring Coursera's courses. A learner "
+             "could use this app to search for appropriate "
+             "courses or visualize the many features offered "
+             "in the dataset. GeekNavi can also help a learner "
+             "find appropriate courses depending on their learning interests.")
 
     # load and disp data
     df = load_data()
     st.header("Dataset Used")
     st.write("For the purpose of building GeekNavi, data from Coursera"
-        " was scraped using the requests and beautifulsoup4 libraries."
+        " was scraped using the **requests** and **beautifulsoup4** libraries."
         " The final dataset thus acquired consists of 1000 instances"
         " and 14 features.")
     st.markdown("Toggle the **Display raw data** checkbox on the sidebar"
